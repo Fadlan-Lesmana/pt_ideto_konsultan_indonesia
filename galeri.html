@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kegiatan - PT IDETO KONSULTAN INDONESIA</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header-light">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+                <div class="logo-text">
+                    <span class="logo-title">PT IDETO</span>
+                    <span class="logo-subtitle">KONSULTAN INDONESIA</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="profile.html" class="nav-item">Profile</a>
+                <a href="konsultasi.html" class="nav-item">Konsultasi</a>
+                <a href="pelatihan.html" class="nav-item">Pendidikan & Pelatihan</a>
+                <a href="galeri.html" class="nav-item active">Galeri</a>
+                <a href="kontak.html" class="nav-item">Kontak</a>
+            </nav>
+            
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="pb-80">
+        <section class="page-padding container align-center animate-fade-in-up">
+            <h1 class="main-title">Galeri Kegiatan</h1>
+            <p class="main-subtitle">Dokumentasi aktivitas profesional kami dalam memberikan layanan terbaik untuk klien.</p>
+        </section>
+
+        <section class="container">
+            <div class="filter-container animate-fade-in-up delay-1">
+                <button class="filter-btn active" data-filter="semua">Semua</button>
+                <button class="filter-btn" data-filter="pelatihan">Pelatihan</button>
+                <button class="filter-btn" data-filter="observasi">Observasi Lapangan</button>
+                <button class="filter-btn" data-filter="dokumen">Kegiatan Perusahaan</button>
+            </div>
+
+            <div class="gallery-grid mt-40">
+                <div class="card card-white gallery-card shadow-hover" data-category="dokumen">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1f2937?text=Dokumen+Laporan+RKL+RPL" alt="Dokumen RKL RPL" class="gallery-img">
+                    </div>
+                </div>
+
+                <div class="card card-white gallery-card shadow-hover" data-category="observasi">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1a7a43?text=Observasi+di+FPSO+Husky" alt="Observasi Lapangan 1" class="gallery-img">
+                    </div>
+                </div>
+
+                <div class="card card-white gallery-card shadow-hover" data-category="pelatihan">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1a7a43?text=Pelatihan+Pengendalian+Udara" alt="Pelatihan Udara" class="gallery-img">
+                    </div>
+                </div>
+
+                <div class="card card-white gallery-card shadow-hover" data-category="dokumen">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1f2937?text=Data+Perusahaan" alt="Data Perusahaan" class="gallery-img">
+                    </div>
+                </div>
+
+                <div class="card card-white gallery-card shadow-hover" data-category="observasi">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1a7a43?text=Pengambilan+Sampel+Air" alt="Observasi Air" class="gallery-img">
+                    </div>
+                </div>
+
+                <div class="card card-white gallery-card shadow-hover" data-category="pelatihan">
+                    <div class="gallery-img-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f3f4f6/1a7a43?text=Pelatihan+Pencemaran+Air" alt="Pelatihan Air" class="gallery-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-green" style="margin-top: 0;"> 
+        <div class="container">
+            <div class="grid-3-col-footer">
+                <div class="footer-brand">
+                    <div class="logo-white-group">
+                        <div class="logo-icon-white"><i class="fas fa-leaf"></i></div>
+                        <div class="logo-text-white">
+                            <span class="fw-bold">PT IDETO</span><br>
+                            <span class="fs-small">KONSULTAN INDONESIA</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc mt-20">Solusi Konsultasi Lingkungan, Pelatihan, dan Sertifikasi Terpercaya untuk mendukung keberlanjutan dan kepatuhan bisnis Anda.</p>
+                    <div class="social-links mt-20">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="konsultasi.html">Konsultasi</a></li>
+                        <li><a href="pelatihan.html">Pendidikan & Pelatihan</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Informasi Kontak</h4>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Ruko GIS Blok E1 No 20, Jl Raya Pahlawan Gunungsindur, Kec. Gunungsindur, Kab. Bogor, Jawa Barat 16340</li>
+                        <li><i class="fas fa-phone-alt"></i> +6221-75673754</li>
+                        <li><i class="fas fa-envelope"></i> admin@idetokonsultan.co.id</li>
+                        <li><i class="fas fa-globe"></i> www.idetokonsultan.co.id</li>
+                        <li class="mt-10"><i class="far fa-user"></i> <strong>Contact Person:</strong> Irwan Mulyadi (+62822-9880-4710)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PT IDETO Konsultan Indonesia. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
