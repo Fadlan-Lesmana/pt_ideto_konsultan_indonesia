@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - PT IDETO KONSULTAN INDONESIA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="admin-container">
+      <aside class="sidebar">
+        <h2>IDETO Admin</h2>
+        <nav>
+          <a href="#" class="admin-nav-item active"
+            ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+          >
+          <a href="#" class="admin-nav-item"
+            ><i class="fas fa-calendar-plus"></i> Update Kegiatan</a
+          >
+          <a href="#" class="admin-nav-item"
+            ><i class="fas fa-images"></i> Kelola Galeri</a
+          >
+          <a href="index.html" class="admin-nav-item"
+            ><i class="fas fa-external-link-alt"></i> Lihat Website</a
+          >
+        </nav>
+      </aside>
+
+      <main class="admin-content">
+        <header
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+          "
+        >
+          <h1>Update Kegiatan Baru</h1>
+          <div class="user-info">
+            Halo, Admin <i class="fas fa-user-circle"></i>
+          </div>
+        </header>
+
+        <section class="admin-card">
+          <form class="admin-form">
+            <div class="group">
+              <label>Judul Kegiatan</label>
+              <input
+                type="text"
+                placeholder="Contoh: Pelatihan Sertifikasi ISO"
+              />
+            </div>
+            <div class="group">
+              <label>Tanggal</label>
+              <input type="date" />
+            </div>
+            <div class="group">
+              <label>Deskripsi Singkat</label>
+              <textarea
+                rows="4"
+                placeholder="Masukkan detail kegiatan..."
+              ></textarea>
+            </div>
+            <div class="group">
+              <label>Upload Foto</label>
+              <input type="file" />
+            </div>
+            <button type="submit" class="btn-admin">
+              Simpan & Publikasikan
+            </button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
