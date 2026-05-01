@@ -24,8 +24,8 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
             <h2 style="text-align: center; margin-bottom: 30px;">IDETO Admin</h2>
             <nav style="display: flex; flex-direction: column; gap: 10px;">
                 <a href="admin.php" class="admin-nav-item active"><i class="fas fa-image"></i> Kelola Kegiatan</a>
-                <a href="#" class="admin-nav-item"><i class="fas fa-envelope"></i> Pesan Masuk</a>
-                <a href="#" class="admin-nav-item"><i class="fas fa-users"></i> Data Pendaftar</a>
+                <a href="admin_pesan.php" class="admin-nav-item"><i class="fas fa-envelope"></i> Pesan Masuk</a>
+                <a href="admin_pendaftar.php" class="admin-nav-item"><i class="fas fa-users"></i> Data Pendaftar</a>
                 
                 <a href="logout.php" class="admin-nav-item" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
                     <i class="fas fa-sign-out-alt"></i> Logout
