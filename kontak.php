@@ -74,12 +74,13 @@
             <div class="card card-white">
               <h2 class="section-title mb-20">Kirim Pesan</h2>
 
-              <form id="whatsapp-form">
+              <!-- FORMULIR SUDAH DIUPDATE -->
+              <form action="proses_pesan.php" method="POST">
                 <div class="form-group full-width">
                   <label class="form-label">Nama Lengkap</label>
                   <input
                     type="text"
-                    id="wa-nama"
+                    name="nama"
                     class="form-input"
                     placeholder="Masukkan nama Anda"
                     required
@@ -91,7 +92,7 @@
                     <label class="form-label">Email</label>
                     <input
                       type="email"
-                      id="wa-email"
+                      name="email"
                       class="form-input"
                       placeholder="email@domain.com"
                       required
@@ -101,7 +102,7 @@
                     <label class="form-label">Nomor Telepon</label>
                     <input
                       type="tel"
-                      id="wa-telp"
+                      name="no_telp"
                       class="form-input"
                       placeholder="+62 8xx xxxx xxxx"
                       required
@@ -113,7 +114,7 @@
                   <label class="form-label">Subjek</label>
                   <input
                     type="text"
-                    id="wa-subjek"
+                    name="subjek"
                     class="form-input"
                     placeholder="Subjek pesan"
                     required
@@ -123,7 +124,7 @@
                 <div class="form-group full-width">
                   <label class="form-label">Pesan</label>
                   <textarea
-                    id="wa-pesan"
+                    name="pesan"
                     class="form-input form-textarea"
                     placeholder="Tulis pesan Anda di sini..."
                     rows="5"
@@ -132,11 +133,12 @@
                 </div>
 
                 <div class="form-group full-width mt-10">
-                  <button type="submit" class="btn-submit">
+                  <button type="submit" name="kirim_pesan" class="btn-submit">
                     <i class="fab fa-whatsapp"></i> Kirim Pesan via WhatsApp
                   </button>
                 </div>
               </form>
+              <!-- AKHIR FORMULIR -->
             </div>
           </div>
         </div>

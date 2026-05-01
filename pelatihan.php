@@ -132,19 +132,16 @@
 
         <div class="form-wrapper">
           <div class="card card-white form-card">
-            <form action="#" method="POST">
+            <!-- INI BAGIAN FORMULIR YANG SUDAH DIUPDATE -->
+            <form action="proses_daftar.php" method="POST">
               <div class="form-group full-width">
                 <label class="form-label">Pilih Program Pelatihan</label>
                 <div class="select-wrapper">
-                  <select class="form-input">
+                  <select name="program_pelatihan" class="form-input" required>
                     <option value="" disabled selected>Pilih program...</option>
-                    <option value="ppa">
-                      Pengendalian Pencemaran Air (PPA)
-                    </option>
-                    <option value="ppu">
-                      Pengendalian Pencemaran Udara (PPU)
-                    </option>
-                    <option value="k3">K3 Migas</option>
+                    <option value="Pengendalian Pencemaran Air (PPA)">Pengendalian Pencemaran Air (PPA)</option>
+                    <option value="Pengendalian Pencemaran Udara (PPU)">Pengendalian Pencemaran Udara (PPU)</option>
+                    <option value="K3 Migas">K3 Migas</option>
                   </select>
                   <i class="fas fa-chevron-down select-icon"></i>
                 </div>
@@ -155,16 +152,20 @@
                   <label class="form-label">Nama PIC / Pendaftar</label>
                   <input
                     type="text"
+                    name="nama_pic"
                     class="form-input"
                     placeholder="Nama lengkap"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Perusahaan / Instansi</label>
                   <input
                     type="text"
+                    name="perusahaan"
                     class="form-input"
                     placeholder="Nama perusahaan"
+                    required
                   />
                 </div>
               </div>
@@ -174,16 +175,20 @@
                   <label class="form-label">Email</label>
                   <input
                     type="email"
+                    name="email"
                     class="form-input"
                     placeholder="email@perusahaan.com"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Nomor Telepon / WA</label>
                   <input
                     type="tel"
+                    name="no_telp"
                     class="form-input"
                     placeholder="+62 8xx xxxx xxxx"
+                    required
                   />
                 </div>
               </div>
@@ -193,17 +198,19 @@
                   <label class="form-label">Jumlah Peserta</label>
                   <input
                     type="number"
+                    name="jumlah_peserta"
                     class="form-input"
                     placeholder="Contoh: 3"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label class="form-label">Tipe Pelatihan</label>
                   <div class="select-wrapper">
-                    <select class="form-input">
+                    <select name="tipe_pelatihan" class="form-input" required>
                       <option value="" disabled selected>Pilih tipe...</option>
-                      <option value="public">Public Training</option>
-                      <option value="inhouse">In-House Training</option>
+                      <option value="Public Training">Public Training</option>
+                      <option value="In-House Training">In-House Training</option>
                     </select>
                     <i class="fas fa-chevron-down select-icon"></i>
                   </div>
@@ -211,11 +218,12 @@
               </div>
 
               <div class="form-group full-width mt-20">
-                <button type="submit" class="btn-submit">
+                <button type="submit" name="daftar" class="btn-submit">
                   Kirim Pendaftaran
                 </button>
               </div>
             </form>
+            <!-- AKHIR FORMULIR -->
           </div>
         </div>
       </section>
