@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Tambahkan koneksi database di sini agar tabel bisa membaca data
 include 'koneksi.php'; 
 
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
@@ -15,14 +14,22 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
     <meta charset="UTF-8">
     <title>Admin Panel - IDETO</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Tambahan FontAwesome untuk Ikon Menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
     <div class="admin-container">
+        <!-- SIDEBAR BARU DENGAN TAMBAHAN FITUR -->
         <aside class="sidebar">
-            <h2>IDETO Admin</h2>
-            <nav>
-                <a href="admin.php" class="admin-nav-item active">Update Kegiatan</a>
-                <a href="logout.php" class="admin-nav-item">Logout</a>
+            <h2 style="text-align: center; margin-bottom: 30px;">IDETO Admin</h2>
+            <nav style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="admin.php" class="admin-nav-item active"><i class="fas fa-image"></i> Kelola Kegiatan</a>
+                <a href="#" class="admin-nav-item"><i class="fas fa-envelope"></i> Pesan Masuk</a>
+                <a href="#" class="admin-nav-item"><i class="fas fa-users"></i> Data Pendaftar</a>
+                
+                <a href="logout.php" class="admin-nav-item" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
             </nav>
         </aside>
 
@@ -46,7 +53,6 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
                 </form>
             </div>
 
-            <!-- TABEL DAFTAR KEGIATAN MULAI DARI SINI -->
             <h2 style="margin-top: 40px; margin-bottom: 20px;">Daftar Kegiatan Tersimpan</h2>
             <div class="admin-card" style="padding: 0; overflow: hidden;">
                 <div style="overflow-x: auto;">
@@ -63,7 +69,6 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
                         <tbody>
                             <?php
                             $no = 1;
-                            // Mengambil data dari database urut dari yang paling baru
                             $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan ORDER BY id DESC");
                             
                             if(mysqli_num_rows($query) > 0) {
@@ -75,11 +80,13 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
                                     <img src="uploads/<?php echo $row['gambar']; ?>" width="80" style="border-radius: 4px; object-fit: cover; height: 60px;">
                                 </td>
                                 <td style="padding: 15px; font-weight: 500;"><?php echo $row['judul']; ?></td>
-                                <td style="padding: 15px; color: #666;">
-                                    <!-- Memotong deskripsi agar tidak terlalu panjang di tabel -->
-                                    <?php echo substr($row['deskripsi'], 0, 50) . '...'; ?>
-                                </td>
+                                <td style="padding: 15px; color: #666;"><?php echo substr($row['deskripsi'], 0, 50) . '...'; ?></td>
                                 <td style="padding: 15px; text-align: center;">
+                                    <!-- TOMBOL EDIT DITAMBAHKAN DI SINI -->
+                                    <a href="edit_kegiatan.php?id=<?php echo $row['id']; ?>" 
+                                       style="background-color: #0d6efd; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; display: inline-block; margin-right: 5px;">
+                                       Edit
+                                    </a>
                                     <a href="hapus_kegiatan.php?id=<?php echo $row['id']; ?>" 
                                        onclick="return confirm('Yakin ingin menghapus kegiatan ini?')" 
                                        style="background-color: #dc3545; color: white; padding: 8px 12px; text-decoration: none; border-radius: 4px; font-size: 14px; display: inline-block;">
@@ -90,15 +97,13 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
                             <?php 
                                 } 
                             } else {
-                                echo "<tr><td colspan='5' style='padding: 30px; text-align: center; color: #888;'>Belum ada data kegiatan yang dipublikasikan.</td></tr>";
+                                echo "<tr><td colspan='5' style='padding: 30px; text-align: center; color: #888;'>Belum ada data kegiatan.</td></tr>";
                             }
                             ?>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <!-- TABEL DAFTAR KEGIATAN SELESAI -->
-
         </main>
     </div>
 </body>
