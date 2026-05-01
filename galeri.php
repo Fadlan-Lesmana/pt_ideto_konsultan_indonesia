@@ -29,11 +29,11 @@ include 'koneksi.php';
         <nav class="nav-links" id="nav-links">
           <!-- Update semua link .html menjadi .php di navigasi -->
           <a href="index.php" class="nav-item">Home</a>
-          <a href="profile.html" class="nav-item">Profile</a>
-          <a href="konsultasi.html" class="nav-item">Konsultasi</a>
-          <a href="pelatihan.html" class="nav-item">Pendidikan & Pelatihan</a>
+          <a href="profile.php" class="nav-item">Profile</a>
+          <a href="konsultasi.php" class="nav-item">Konsultasi</a>
+          <a href="pelatihan.php" class="nav-item">Pendidikan & Pelatihan</a>
           <a href="galeri.php" class="nav-item active">Galeri</a>
-          <a href="kontak.html" class="nav-item">Kontak</a>
+          <a href="kontak.php" class="nav-item">Kontak</a>
         </nav>
 
         <button class="hamburger" id="hamburger">
