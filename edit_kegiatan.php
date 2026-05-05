@@ -8,6 +8,10 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
 }
 
 // Ambil data yang mau diedit berdasarkan ID
+if(!isset($_GET['id']) || empty($_GET['id'])) {
+    header("Location: admin.php");
+    exit;
+}
 $id = $_GET['id'];
 $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan WHERE id = '$id'");
 $data = mysqli_fetch_object($query);
