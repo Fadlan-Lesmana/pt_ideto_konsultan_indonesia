@@ -1,45 +1,4 @@
-<?php 
-include 'koneksi.php'; 
-?>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT IDETO KONSULTAN INDONESIA</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <header class="header-light">
-        <div class="container header-container">
-            <!-- 2. Ubah index.html menjadi index.php pada logo -->
-            <a href="index.php" class="logo">
-                <div class="logo-icon"><i class="fas fa-leaf"></i></div>
-                <div class="logo-text">
-                    <span class="logo-title">PT IDETO</span>
-                    <span class="logo-subtitle">KONSULTAN INDONESIA</span>
-                </div>
-            </a>
-            
-            <nav class="nav-links" id="nav-links">
-                <!-- 3. Ubah semua referensi index.html menjadi index.php -->
-                <a href="index.php" class="nav-item active">Home</a>
-                <a href="profile.php" class="nav-item">Profile</a>
-                <a href="konsultasi.php" class="nav-item">Konsultasi</a>
-                <a href="pelatihan.php" class="nav-item">Pendidikan & Pelatihan</a>
-                <a href="galeri.php" class="nav-item">Galeri</a>
-                <a href="kontak.php" class="nav-item">Kontak</a>
-            </nav>
-            
-            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
-        </div>
-    </header>
+<?php include 'header.php'; ?>
 
     <main>
         <!-- Bagian Hero & Stats tetap sama -->
@@ -50,8 +9,9 @@ include 'koneksi.php';
                 <h1 class="hero-title-large mt-20">Solusi Konsultasi<br>Lingkungan, Pelatihan,<br>dan Sertifikasi Terpercaya</h1>
                 <p class="hero-subtitle-home mt-20">Mitra strategis Anda dalam mewujudkan kepatuhan regulasi, peningkatan kompetensi SDM, dan keberlanjutan bisnis melalui layanan profesional berstandar tinggi.</p>
                 <div class="hero-buttons mt-40">
-                    <a href="kontak.html" class="btn-primary-white">Hubungi Kami <i class="fas fa-arrow-right"></i></a>
-                    <a href="profile.html" class="btn-outline-white">Pelajari Lebih Lanjut</a>
+                    <!-- LINK SUDAH DIPERBAIKI KE .php -->
+                    <a href="kontak.php" class="btn-primary-white">Hubungi Kami <i class="fas fa-arrow-right"></i></a>
+                    <a href="profile.php" class="btn-outline-white">Pelajari Lebih Lanjut</a>
                 </div>
             </div>
         </section>
@@ -76,7 +36,7 @@ include 'koneksi.php';
             </div>
         </section>
 
-        <!-- 4. BAGIAN DINAMIS: Menampilkan Kegiatan dari Database -->
+        <!-- BAGIAN DINAMIS: Menampilkan Kegiatan dari Database -->
         <section class="container page-padding">
             <div class="align-center mb-50">
                 <h2 class="section-title">Kegiatan & Berita Terbaru</h2>
@@ -85,10 +45,9 @@ include 'koneksi.php';
 
             <div class="grid-3-col">
                 <?php
-                // Ambil data kegiatan terbaru
-                $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan ORDER BY id DESC LIMIT 3");
-                
-                if(mysqli_num_rows($query) > 0) {
+                    include 'koneksi.php'; 
+                    $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan ORDER BY id DESC LIMIT 3");
+                    if($query && mysqli_num_rows($query) > 0) {
                     while($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="card card-white shadow-hover outline-card align-left">
@@ -112,25 +71,10 @@ include 'koneksi.php';
         <section class="cta-section align-center">
             <div class="container">
                 <h2 class="hero-title-large text-white mb-20">Siap Meningkatkan Kinerja<br>Lingkungan Perusahaan Anda?</h2>
-                <a href="kontak.html" class="btn-primary-white">Mulai Konsultasi Gratis</a>
+                <!-- LINK SUDAH DIPERBAIKI KE .php -->
+                <a href="kontak.php" class="btn-primary-white">Mulai Konsultasi Gratis</a>
             </div>
         </section>
     </main>
 
-    <!-- Logo Slider & Footer tetap sama, hanya ganti link index.html -->
-    <footer class="footer-green"> 
-        <div class="container">
-            <div class="footer-links">
-                <h4 class="footer-heading">Tautan Cepat</h4>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <!-- Tautan lainnya -->
-                </ul>
-            </div>
-            <!-- Bagian footer lainnya -->
-        </div>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+<?php include 'footer.php'; ?>
