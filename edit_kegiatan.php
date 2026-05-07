@@ -3,7 +3,7 @@ session_start();
 include 'koneksi.php';
 
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: login.php");
+    header("Location: index.php"); // Melempar ke halaman utama jika belum login
     exit;
 }
 

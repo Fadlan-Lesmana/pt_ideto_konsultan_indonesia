@@ -1,11 +1,12 @@
 <?php
 session_start();
-include 'koneksi.php'; 
 
+// Jika belum login, tendang ke halaman utama agar lokasi login tidak diketahui
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
+include 'koneksi.php';
 ?>
 
 <!DOCTYPE html>

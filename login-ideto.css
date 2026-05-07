@@ -1,0 +1,60 @@
+body.login-page {
+  background-color: #f4f7f6;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-box {
+  width: 350px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e8e5;
+}
+
+.login-box h2 {
+  color: #1a7a43; /* Hijau Khas IDETO */
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.login-box input:focus {
+  border-color: #1a7a43;
+  box-shadow: 0 0 0 3px rgba(26, 122, 67, 0.1);
+}
+
+.btn-admin {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a7a43;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.btn-admin:hover {
+  background-color: #145e34;
+  transform: translateY(-1px);
+}
