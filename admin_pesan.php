@@ -75,9 +75,9 @@ include 'koneksi.php';
                                     <span style="color: #444; line-height: 1.5;"><?php echo $row['pesan']; ?></span>
                                 </td>
                                 <td style="padding: 15px; text-align: center; vertical-align: top;">
-                                    <a href="#" onclick="alert('Fitur hapus segera aktif')" 
-                                       style="background-color: #dc3545; color: white; padding: 6px 10px; text-decoration: none; border-radius: 4px; font-size: 13px;">
-                                       Hapus
+                                    <a href="hapus_pesan.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus pesan ini?')"
+                                    style="background-color: #dc3545; color: white; padding: 6px 10px; text-decoration: none; border-radius: 4px; font-size: 13px;">
+                                    Hapus
                                     </a>
                                 </td>
                             </tr>

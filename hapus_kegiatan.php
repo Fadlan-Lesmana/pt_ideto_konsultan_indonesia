@@ -8,7 +8,7 @@ if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
 }
 
 if(isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = (int)$_GET['id'];
     
     // Cari nama gambar di database
     $query = mysqli_query($conn, "SELECT gambar FROM tb_kegiatan WHERE id = '$id'");

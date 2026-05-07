@@ -3,40 +3,62 @@ session_start();
 include 'koneksi.php';
 
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: index.php"); // Melempar ke halaman utama jika belum login
+    header("Location: index.php");
     exit;
 }
 
-// Ambil data yang mau diedit berdasarkan ID
 if(!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: admin.php");
     exit;
 }
-$id = $_GET['id'];
+
+// 1. AMANKAN ID (Paksa jadi angka)
+$id = (int)$_GET['id'];
 $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan WHERE id = '$id'");
 $data = mysqli_fetch_object($query);
 
-// Proses Update Data Jika Tombol Simpan Diklik
+// Proses Update Data
 if(isset($_POST['update'])) {
-    $judul = $_POST['judul'];
-    $deskripsi = $_POST['deskripsi'];
+    // 2. AMANKAN TEKS DARI SQL INJECTION
+    $judul = mysqli_real_escape_string($conn, $_POST['judul']);
+    $deskripsi = mysqli_real_escape_string($conn, $_POST['deskripsi']);
     $foto_lama = $_POST['foto_lama'];
     
     // Cek apakah admin mengunggah foto baru
     if($_FILES['gambar']['name'] != '') {
         $foto_baru = $_FILES['gambar']['name'];
         $tmp_name = $_FILES['gambar']['tmp_name'];
-        move_uploaded_file($tmp_name, 'uploads/'.$foto_baru);
+        $ukuran_file = $_FILES['gambar']['size'];
         
-        // Hapus foto lama agar folder tidak penuh
-        if(file_exists("uploads/".$foto_lama)) {
-            unlink("uploads/".$foto_lama);
+        // 3. VALIDASI FILE (Hanya Gambar & Maksimal 5MB)
+        $ekstensi_diperbolehkan = array('jpg', 'jpeg', 'png', 'gif');
+        $x = explode('.', $foto_baru);
+        $ekstensi = strtolower(end($x));
+        
+        if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
+            if ($ukuran_file < 5000000) {
+                // Beri nama unik agar tidak bentrok
+                $nama_file_unik = uniqid() . '.' . $ekstensi;
+                move_uploaded_file($tmp_name, 'uploads/'.$nama_file_unik);
+                
+                // Hapus foto lama
+                if(file_exists("uploads/".$foto_lama)) {
+                    unlink("uploads/".$foto_lama);
+                }
+                $foto_baru = $nama_file_unik;
+            } else {
+                echo "<script>alert('Ukuran file terlalu besar! Maksimal 5MB.'); window.location='edit_kegiatan.php?id=$id';</script>";
+                exit; // Hentikan proses
+            }
+        } else {
+            echo "<script>alert('Ekstensi ditolak! Hanya unggah JPG, PNG, atau GIF.'); window.location='edit_kegiatan.php?id=$id';</script>";
+            exit; // Hentikan proses
         }
     } else {
-        // Jika tidak upload foto baru, gunakan foto lama
-        $foto_baru = $foto_lama;
+        $foto_baru = $foto_lama; // Jika tidak upload, gunakan foto lama
     }
 
+    // 4. UPDATE KE DATABASE
     $update = mysqli_query($conn, "UPDATE tb_kegiatan SET 
                             judul = '$judul', 
                             deskripsi = '$deskripsi', 

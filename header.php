@@ -4,6 +4,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 include 'koneksi.php'; 
+
+// Ambil nama file yang sedang diakses (contoh: 'profile.php')
+$halaman_aktif = basename($_SERVER['PHP_SELF']);
 ?>
 <!doctype html>
 <html lang="id">
@@ -30,12 +33,12 @@ include 'koneksi.php';
             </a>
 
             <nav class="nav-links" id="nav-links">
-                <a href="index.php" class="nav-item">Home</a>
-                <a href="profile.php" class="nav-item">Profile</a>
-                <a href="konsultasi.php" class="nav-item">Konsultasi</a>
-                <a href="pelatihan.php" class="nav-item">Pendidikan & Pelatihan</a>
-                <a href="galeri.php" class="nav-item">Galeri</a>
-                <a href="kontak.php" class="nav-item">Kontak</a>
+                <a href="index.php" class="nav-item <?php echo ($halaman_aktif == 'index.php') ? 'active' : ''; ?>">Home</a>
+                <a href="profile.php" class="nav-item <?php echo ($halaman_aktif == 'profile.php') ? 'active' : ''; ?>">Profile</a>
+                <a href="konsultasi.php" class="nav-item <?php echo ($halaman_aktif == 'konsultasi.php') ? 'active' : ''; ?>">Konsultasi</a>
+                <a href="pelatihan.php" class="nav-item <?php echo ($halaman_aktif == 'pelatihan.php') ? 'active' : ''; ?>">Pendidikan & Pelatihan</a>
+                <a href="galeri.php" class="nav-item <?php echo ($halaman_aktif == 'galeri.php') ? 'active' : ''; ?>">Galeri</a>
+                <a href="kontak.php" class="nav-item <?php echo ($halaman_aktif == 'kontak.php') ? 'active' : ''; ?>">Kontak</a>
             </nav>
 
             <button class="hamburger" id="hamburger">
