@@ -2,27 +2,19 @@
 session_start();
 include 'koneksi.php';
 
-if (isset($_POST['login'])) {
-    $user = mysqli_real_escape_string($conn, $_POST['username']);
-    $pass = $_POST['password'];
+$user = mysqli_real_escape_string($conn, $_POST['username']);
+$pass = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // Ambil data berdasarkan username saja
-    $query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '$user'");
-    
-    if (mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query);
-        
-        // Verifikasi password hash
-        if (password_verify($pass, $data['password'])) {
-            $_SESSION['status_login'] = true;
-            header("Location: admin.php");
-            exit;
-        } else {
-            echo "<script>alert('Password salah!');</script>";
-        }
-    } else {
-        echo "<script>alert('Username tidak ditemukan!');</script>";
-    }
+// Gunakan MD5
+$query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '$user' AND password = '".md5($pass)."'");
+
+if (mysqli_num_rows($query) > 0) {
+    $data = mysqli_fetch_assoc($query);
+    $_SESSION['status_login'] = true;
+    header("Location: admin.php");
+    exit;
+} else {
+    echo "<script>alert('Login Gagal!');</script>";
 }
 ?>
 <!DOCTYPE html>
