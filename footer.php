@@ -38,7 +38,10 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 PT IDETO Konsultan Indonesia. All rights reserved.</p>
+                <p>
+                    &copy; 2026 PT IDETO Konsultan Indonesia. All rights reserved
+                    <a href="login.php" style="color: inherit; text-decoration: none; cursor: default;">.</a>
+                </p>
             </div>
         </div>
     </footer>
