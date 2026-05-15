@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 include '../koneksi.php';
@@ -79,7 +79,7 @@ include '../koneksi.php';
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 15px;"><?php echo $no++; ?></td>
                                 <td style="padding: 15px;">
-                                    <img src="uploads/<?php echo $row['gambar']; ?>" width="80" style="border-radius: 4px; object-fit: cover; height: 60px;">
+                                    <img src="../uploads/<?php echo $row['gambar']; ?>" width="80" style="border-radius: 4px; object-fit: cover; height: 60px;">
                                 </td>
                                 <td style="padding: 15px; font-weight: 500;"><?php echo $row['judul']; ?></td>
                                 <td style="padding: 15px; color: #666;"><?php echo substr($row['deskripsi'], 0, 50) . '...'; ?></td>

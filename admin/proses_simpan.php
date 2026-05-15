@@ -1,6 +1,7 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 
+/** @var mysqli $conn */ 
 if (isset($_POST['simpan'])) {
     // 1. Amankan teks dari SQL Injection
     $judul = mysqli_real_escape_string($conn, $_POST['judul']);
@@ -19,7 +20,7 @@ if (isset($_POST['simpan'])) {
         if ($ukuran_file < 5000000) { // Maksimal 5MB
             // 3. Ubah nama file menjadi unik agar tidak bentrok
             $nama_file_baru = uniqid() . '.' . $ekstensi;
-            $folder = "uploads/";
+            $folder = "../uploads/";
 
             // 4. PENAMBAHAN DI SINI: Cek dan buat folder uploads/ jika belum ada
             if (!is_dir($folder)) {
