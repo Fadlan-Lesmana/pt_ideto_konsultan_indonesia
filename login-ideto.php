@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
         $_SESSION['status_login'] = true;
         
         // Redirect ke halaman admin
-        header("Location: ../admin.php");
+        header("Location: admin/admin.php");
         exit;
     } else {
         echo "<script>alert('Login Gagal! Username atau Password salah.');</script>";
