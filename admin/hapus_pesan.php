@@ -1,18 +1,19 @@
 <?php
 session_start();
-include 'koneksi.php';
 
-// Proteksi halaman admin
+// Cek apakah admin sudah login
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: index.php"); 
+    header("Location: ../index.php"); // Keluar folder menuju halaman utama
     exit;
 }
 
+include '../koneksi.php'; 
+
 if(isset($_GET['id'])) {
-    // Amankan ID
-    $id = (int)$_GET['id'];
+    /** @var mysqli $conn */
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
     
-    // Hapus dari database
+    // Perintah untuk menghapus data dari tabel tb_pesan berdasarkan ID
     $delete = mysqli_query($conn, "DELETE FROM tb_pesan WHERE id = '$id'");
     
     if($delete) {
@@ -21,6 +22,7 @@ if(isset($_GET['id'])) {
         echo "<script>alert('Gagal menghapus pesan!'); window.location='admin_pesan.php';</script>";
     }
 } else {
+    // Jika tidak ada ID, kembalikan ke halaman pesan
     header("Location: admin_pesan.php");
 }
 ?>

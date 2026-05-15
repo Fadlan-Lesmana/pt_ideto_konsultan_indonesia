@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-// Jika belum login, tendang ke halaman utama agar lokasi login tidak diketahui
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
     header("Location: index.php");
     exit;
 }
-include 'koneksi.php';
+include '../koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +13,7 @@ include 'koneksi.php';
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - IDETO</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Tambahan FontAwesome untuk Ikon Menu -->
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
@@ -68,13 +66,16 @@ include 'koneksi.php';
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            $no = 1;
-                            $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan ORDER BY id DESC");
-                            
-                            if(mysqli_num_rows($query) > 0) {
-                                while($row = mysqli_fetch_array($query)) {
-                            ?>
+                        <?php
+        
+                        $no = 1;
+        
+                        /** @var mysqli $conn */
+                        $query = mysqli_query($conn, "SELECT * FROM tb_kegiatan ORDER BY id DESC");
+        
+                        if(mysqli_num_rows($query) > 0) {
+                            while($row = mysqli_fetch_array($query)) {
+                        ?>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 15px;"><?php echo $no++; ?></td>
                                 <td style="padding: 15px;">

@@ -1,14 +1,16 @@
 <?php
 session_start();
-include 'koneksi.php';
 
+// Cek apakah admin sudah login
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
-    header("Location: index.php"); // Melempar ke halaman utama jika belum login
+    header("Location: ../index.php"); // Keluar folder menuju halaman utama
     exit;
 }
 
+include '../koneksi.php'; 
 if(isset($_GET['id'])) {
-    $id = $_GET['id'];
+    /** @var mysqli $conn */
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
     
     // Perintah untuk menghapus data dari tabel tb_pendaftar berdasarkan ID
     $delete = mysqli_query($conn, "DELETE FROM tb_pendaftar WHERE id = '$id'");
